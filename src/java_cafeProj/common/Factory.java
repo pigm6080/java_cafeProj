@@ -1,27 +1,27 @@
 package java_cafeProj.common;
 
 import java_cafeProj.dao.userDAO;
-import java_cafeProj.srv.loginService;
+import java_cafeProj.srv.RegisetService;
 
 public class Factory {
 	
-	private Factory() {}
-	
 	private static Factory instanse;
 	
-	public static Factory getInstanse() {
+	private Factory() {}
+	
+	public static Factory getInstance() {
 		if(instanse == null) {
 			instanse = new Factory();
 		}
-		return instanse;	
+		return instanse;
 	}
 	
-	private userDAO dao = new userDAO();
 	
-	loginService logSrv = new loginService(dao);
-	public loginService getloginSrv() {
-		return logSrv;
+	userDAO dao = new userDAO();
+	RegisetService RegiseSrv = new RegisetService(dao);
+	
+	public RegisetService getReisetSrv () {
+		return RegiseSrv;
 	}
-	
 	
 }
